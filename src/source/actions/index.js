@@ -10,3 +10,10 @@ export {
     // purchaseCancel,
     // purchaseContinue,
 } from './order';
+
+export {
+    auth,
+    logout,
+    setAuthRedirectPath,
+    authCheckState
+}from './auth';
