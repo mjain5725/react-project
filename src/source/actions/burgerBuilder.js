@@ -1,5 +1,4 @@
 import * as actionTypes from './actionTypes';
-import axios from '../../axios-orders';
 
 export const addIngredient = (name) =>{
     //normal redux
@@ -30,15 +29,21 @@ export const fetchIngredientsFailed = (ingredients) => {
     }; 
 };
 
+// export const initIngredients = () => {
+//     //Because of thunk
+//     return dispatch => {
+//         axios.get('https://react-project-576ef.firebaseio.com/ingredients.json')
+//         .then(response => {
+//             dispatch(setIngredients(response.data));
+//         })
+//         .catch(error => {
+//             dispatch(fetchIngredientsFailed());
+//         })
+//     };
+// };
+
 export const initIngredients = () => {
-    //Because of thunk
-    return dispatch => {
-        axios.get('https://react-project-576ef.firebaseio.com/ingredients.json')
-        .then(response => {
-            dispatch(setIngredients(response.data));
-        })
-        .catch(error => {
-            dispatch(fetchIngredientsFailed());
-        })
+    return {
+        type: actionTypes.INIT_INGREDIENTS
     };
 };
